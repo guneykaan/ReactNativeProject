@@ -17,33 +17,32 @@ export default function HomeScreen({ navigation }) {
 
     return (
         <View style={styles.topView}>
-            <View style = {styles.itemView}>
+            <View style={styles.itemView}>
                 <Button onPress={() => goCategory()} title='Go to Category!'></Button>
             </View>
 
-            <View style = {styles.itemView}>
+            <View style={styles.itemView}>
                 <Button onPress={() => goProduct()} title='Go to Product!'></Button>
             </View>
 
-            <View style = {styles.itemView}>
+            <View style={styles.itemView}>
                 <Button onPress={() => goOrder()} title='Go to Order!'></Button>
             </View>
 
-
-
         </View>
     )
-
 
 }
 
 const styles = StyleSheet.create({
     topView: {
-        flex: 5
+        flex: 4,
+        alignItems:'center'
     },
-    itemView:{
+    itemView: {
+        width:'80%',
         flex: 1,
-        justifyContent: ' space-around',
+        justifyContent: 'space-around',
         justifyContent: 'center'
     }
 });
