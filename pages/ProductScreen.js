@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import baseManager from '../BaseService';
 import { ListItem, Icon } from 'react-native-elements';
 
-export default function ProductScreen() {
+export default function ProductScreen({ navigation }) {
 
     const [products, setproducts] = useState([]);
 
@@ -25,6 +25,10 @@ export default function ProductScreen() {
             })
     }
 
+    const gotoDetailPage = (id) => {
+        navigation.navigate('ProductDetails', { productId: id })
+    }
+
     return (
         <View>
             {
@@ -38,6 +42,8 @@ export default function ProductScreen() {
                             </ListItem.Content>
                             <Icon style={{ justifyContent: 'flex-end' }}
                                 name='delete' onPress={() => deleteProduct(product.id)} />
+                            <Icon
+                                name='rowing' onPress={() => gotoDetailPage(product.id)} />
                         </ListItem>
                     )
                 })
@@ -47,3 +53,9 @@ export default function ProductScreen() {
 
     )
 }
+
+const styles = StyleSheet.create({
+    iconStyle: {
+        justifyContent: 'flex-end'
+    },
+});
