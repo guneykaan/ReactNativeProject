@@ -4,7 +4,7 @@ import baseManager from '../BaseService';
 import { ListItem, Icon } from 'react-native-elements';
 import { Button } from 'react-native';
 
-export default function CategoryScreen({navigation}) {
+export default function CategoryScreen({ navigation }) {
 
     const [categories, setcategories] = useState([]);
 
@@ -26,10 +26,10 @@ export default function CategoryScreen({navigation}) {
             })
     }
 
-    const updateCategory = (id) => {
-        console.log("update category cliclked!");
+    const updateCategory = (id, name, description) => {
+        navigation.navigate('UpdateCategory', { categoryId: id, categoryName: name, categoryDescription: description })
     }
-    const addCategory = () =>{
+    const addCategory = () => {
         navigation.push('AddCategory')
     }
     return (
@@ -49,7 +49,7 @@ export default function CategoryScreen({navigation}) {
                             <Icon style={{ justifyContent: 'flex-end' }}
                                 name='delete' onPress={() => deleteCategory(category.id)} />
                             <Icon style={{ justifyContent: 'flex-end' }}
-                                name='update' onPress={() => updateCategory(category.id)} />
+                                name='update' onPress={() => updateCategory(category.id, category.name, category.description)} />
                         </ListItem>
                     )
                 })
