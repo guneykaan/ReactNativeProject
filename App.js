@@ -7,6 +7,7 @@ import CategoryScreen from './pages/CategoryScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ProductDetailsScreen from './pages/ProductDetailsScreen';
+import AddCategoryScreen from './pages/AddCategoryScreen';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
         <Stack.Screen name="Product" component={ProductScreen} />
         <Stack.Screen name="Category" component={CategoryScreen} />
         <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
-
+        <Stack.Screen name="AddCategory" component={AddCategoryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
 
